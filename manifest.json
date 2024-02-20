@@ -1,6 +1,6 @@
 {
     "name": "Football Leagues Ext",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Extension that shows the current league table for any top 5 league",
     "manifest_version": 3,
     "author": "BK",
