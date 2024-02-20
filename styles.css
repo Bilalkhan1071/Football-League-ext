@@ -1,5 +1,6 @@
 .popup {
-    width: 300px;
+    width: 100%; 
+    max-width: 800px; /* Set maximum width to prevent it from becoming too wide */
     padding: 20px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
@@ -41,6 +42,7 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
 }
 
 .popup th, .popup td {

@@ -21,14 +21,29 @@ async function fetchData(countryCode, leagueCode) {
         const result = await response.json();
         const standings = result.data.total;
 
-        const tableBody = document.getElementById("standings");
+        const tableBody = document.getElementById("standingsBody");
         tableBody.innerHTML = ''; // Clear previous data
         standings.forEach((team, index) => {
             const row = tableBody.insertRow();
-            const positionCell = row.insertCell(0);
-            const teamCell = row.insertCell(1);
-            positionCell.textContent = index + 1; // Position starts from 1
-            teamCell.textContent = team.team_name;
+            const nameCell = row.insertCell(0);
+            const gpCell = row.insertCell(1);
+            const winCell = row.insertCell(2);
+            const drawCell = row.insertCell(3);
+            const lossCell = row.insertCell(4);
+            const gfCell = row.insertCell(5);
+            const gaCell = row.insertCell(6);
+            const gdCell = row.insertCell(7);
+            const pointsCell = row.insertCell(8);
+            
+            nameCell.textContent = team.team_name;
+            gpCell.textContent = team.games_played;
+            winCell.textContent = team.won;
+            drawCell.textContent = team.draw;
+            lossCell.textContent = team.lost;
+            gfCell.textContent = team.goals_for;
+            gaCell.textContent = team.goals_against;
+            gdCell.textContent = team.goals_diff;
+            pointsCell.textContent = team.points;
         });
     } catch (error) {
         console.error('Error fetching data:', error);
