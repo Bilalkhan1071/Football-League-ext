@@ -21,7 +21,15 @@ async function fetchData(countryCode, leagueCode) {
         const result = await response.json();
         const standings = result.data.total;
 
-        document.getElementById("standings").innerHTML = standings.map(team => `<li>${team.team_name}</li>`).join('');
+        const tableBody = document.getElementById("standings");
+        tableBody.innerHTML = ''; // Clear previous data
+        standings.forEach((team, index) => {
+            const row = tableBody.insertRow();
+            const positionCell = row.insertCell(0);
+            const teamCell = row.insertCell(1);
+            positionCell.textContent = index + 1; // Position starts from 1
+            teamCell.textContent = team.team_name;
+        });
     } catch (error) {
         console.error('Error fetching data:', error);
     }
