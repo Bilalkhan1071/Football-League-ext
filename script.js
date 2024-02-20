@@ -1,3 +1,11 @@
+const leagueCodes = {
+    "england": "premier-league",
+    "france": "ligue-1",
+    "germany": "bundesliga",
+    "italy": "serie-a",
+    "spain": "laliga"
+};
+
 async function fetchData(countryCode, leagueCode) {
     const url = `https://livescore-football.p.rapidapi.com/soccer/league-table?country_code=${countryCode}&league_code=${leagueCode}`;
     const options = {
@@ -22,9 +30,11 @@ async function fetchData(countryCode, leagueCode) {
 document.getElementById("leagueForm").addEventListener("submit", function(event) {
     event.preventDefault();
     const countryCode = document.getElementById("countryCode").value;
-    const leagueCode = document.getElementById("leagueCode").value;
+    const leagueCode = leagueCodes[countryCode];
     fetchData(countryCode, leagueCode);
 });
 
-
-fetchData()
+// Initial fetch
+const initialCountryCode = "england"; // You can set any default country code here
+const initialLeagueCode = leagueCodes[initialCountryCode];
+fetchData(initialCountryCode, initialLeagueCode);
