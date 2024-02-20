@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div>
+    <div class="popup">
         <h2>Current Standings</h2>
         <form id="leagueForm">
             <label for="countryCode">Country:</label>
@@ -22,10 +22,13 @@
             <button type="submit">Get Standings</button>
         </form>
         <table id="standings">
-            <tr>
-                <th>Position</th>
-                <th>Team</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Team</th>
+                </tr>
+            </thead>
+            <tbody id="standingsBody"></tbody>
         </table>
     </div>
     <script src="script.js"></script>
